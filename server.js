@@ -26,16 +26,17 @@ app.get("/", function(req, res){
 // Define any API routes before this runs
 
 app.get("/api/v1/records", function(req, res){
-   db.FranchiseTaxpayers.find().then(response => res.json(response))
+   db.FranchiseTaxpayers
+   .find()
+   .then(response => res.json(response))
 })
 
 //findbyid
 app.get("/api/v1/records/:busi", function(req, res){
   const busi = req.params.busi
-  db.FranchiseTaxpayers.findById(busi).then(response => res.json(response));
-  //console.log(id)
-  //id.findbyid();
-  //res.json({msg:"records route"})
+  db.FranchiseTaxpayers
+  .findById(busi)
+  .then(response => res.json(response));
 })
 
 app.get("*", function(req, res) {
